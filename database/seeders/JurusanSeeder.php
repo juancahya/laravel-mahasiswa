@@ -14,22 +14,22 @@ class JurusanSeeder extends Seeder
      */
     public function run()
     {
-        $jrs1 = new Jurusan;
-        $jrs1->jrs="11";
-        $jrs1->nama_jrs="Sistem Informasi Akuntansi";
-        $jrs1->fakultas="Teknik dan Informatika";
+        $jrs1 = new Jurusan();
+        $jrs1->jrs = '11';
+        $jrs1->nama_jrs = 'Sistem Informasi Akuntansi';
+        $jrs1->fakultas = 'Teknik dan Informatika';
         $jrs1->save();
 
-        $jrs1 = new Jurusan;
-        $jrs1->jrs="12";
-        $jrs1->nama_jrs="Sistem Informasi ";
-        $jrs1->fakultas="Teknik dan Informatika";
+        $jrs1 = new Jurusan();
+        $jrs1->jrs = '12';
+        $jrs1->nama_jrs = 'Sistem Informasi ';
+        $jrs1->fakultas = 'Teknik dan Informatika';
         $jrs1->save();
 
-        $jrs1 = new Jurusan;
-        $jrs1->jrs="13";
-        $jrs1->nama_jrs="Teknologi Komputer ";
-        $jrs1->fakultas="Teknik dan Informatika";
+        $jrs1 = new Jurusan();
+        $jrs1->jrs = '13';
+        $jrs1->nama_jrs = 'Teknologi Komputer ';
+        $jrs1->fakultas = 'Teknik dan Informatika';
         $jrs1->save();
     }
 }

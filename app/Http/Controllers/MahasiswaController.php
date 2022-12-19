@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = \App\Models\Mahasiswa::All();
-        return view( 'Mahasiswa.index' , ['mahasiswa' => $mahasiswa]);
+        return view('Mahasiswa.index', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
@@ -37,17 +37,17 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         //Menangkap Data Yang Diinput
-        $nim=$request->get('nim');
-        $nama=$request->get('nama');
-        $jurusan=$request->get('jurusan');
+        $nim = $request->get('nim');
+        $nama = $request->get('nama');
+        $jurusan = $request->get('jurusan');
 
         //Menyimpan data kedalam tabel
-        $save_mhs = new \App\Models\Mahasiswa;
-        $save_mhs->nim=$nim;
-        $save_mhs->nama_mhs=$nama;
-        $save_mhs->jurusan=$jurusan;
+        $save_mhs = new \App\Models\Mahasiswa();
+        $save_mhs->nim = $nim;
+        $save_mhs->nama_mhs = $nama;
+        $save_mhs->jurusan = $jurusan;
         $save_mhs->save();
-        return redirect()->route( 'mahasiswa.index' );
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -70,7 +70,7 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $mhs_edit = \App\Models\Mahasiswa::findOrFail($id);
-        return view( 'Mahasiswa.edit', ['mahasiswa' => $mhs_edit]);
+        return view('Mahasiswa.edit', ['mahasiswa' => $mhs_edit]);
     }
 
     /**
@@ -83,11 +83,11 @@ class MahasiswaController extends Controller
     public function update(Request $request, $id)
     {
         $mhs = \App\Models\Mahasiswa::findOrFail($id);
-        $mhs->nim=$request->get('nim');
-        $mhs->nama_mhs=$request->get('nama');
-        $mhs->jurusan=$request->get('jurusan');
+        $mhs->nim = $request->get('nim');
+        $mhs->nama_mhs = $request->get('nama');
+        $mhs->jurusan = $request->get('jurusan');
         $mhs->save();
-        return redirect()->route( 'mahasiswa.index' , [$id]);
+        return redirect()->route('mahasiswa.index', [$id]);
     }
 
     /**
@@ -99,9 +99,9 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $mhs = \App\Mahasiswa::findOrFail($id);
- 
+
         $mhs->delete();
-        
-        return redirect()->route( 'mahasiswa.index');
+
+        return redirect()->route('mahasiswa.index');
     }
 }

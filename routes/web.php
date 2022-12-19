@@ -20,9 +20,9 @@ Route::get('/', function () {
 });
 
 // Routing Mahasiswa
-Route::resource( 'mahasiswa' , MahasiswaController::class);
-Route::get('/mahasiswa/hapus/{id}','MahasiswaController@destroy');
+Route::resource('mahasiswa', MahasiswaController::class);
+Route::get('/mahasiswa/hapus/{id}', 'MahasiswaController@destroy');
 
 //Routing Jurusan
-Route::resource('jurusan' , JurusanController::class);
-Route::get('/jurusan/hapus/{id}','JurusanController@destroy');
+Route::resource('jurusan', JurusanController::class);
+Route::get('/jurusan/hapus/{id}', 'JurusanController@destroy');

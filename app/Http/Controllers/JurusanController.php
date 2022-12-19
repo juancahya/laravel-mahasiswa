@@ -15,7 +15,7 @@ class JurusanController extends Controller
     public function index()
     {
         $jurusan = \App\Models\Jurusan::All();
-        return view( 'jurusan.index' , [ 'jurusan' => $jurusan]);
+        return view('jurusan.index', ['jurusan' => $jurusan]);
     }
 
     /**
@@ -37,18 +37,17 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         //Menangkap Data Yang Diinput
-        $jrs=$request->get('kdjrs');
-        $nama=$request->get('namajrs');
-        $fakultas=$request->get('fakultas');
+        $jrs = $request->get('kdjrs');
+        $nama = $request->get('namajrs');
+        $fakultas = $request->get('fakultas');
 
         //Menyimpan data kedalam tabel
-        $save_jrs = new \App\Models\Jurusan;
-        $save_jrs->jrs=$jrs;
-        $save_jrs->nama_jrs=$nama;
-        $save_jrs->fakultas=$fakultas;
+        $save_jrs = new \App\Models\Jurusan();
+        $save_jrs->jrs = $jrs;
+        $save_jrs->nama_jrs = $nama;
+        $save_jrs->fakultas = $fakultas;
         $save_jrs->save();
-        return redirect()->route( 'jurusan.index' );
-
+        return redirect()->route('jurusan.index');
     }
 
     /**
@@ -71,7 +70,7 @@ class JurusanController extends Controller
     public function edit($id)
     {
         $jrs_edit = \App\Models\Jurusan::findOrFail($id);
-        return view( 'Jurusan.edit', ['jurusan' => $jrs_edit]);
+        return view('Jurusan.edit', ['jurusan' => $jrs_edit]);
     }
 
     /**
@@ -84,11 +83,11 @@ class JurusanController extends Controller
     public function update(Request $request, $id)
     {
         $jrs = \App\Models\Jurusan::findOrFail($id);
-        $jrs->jrs=$request->get('kdjrs');
-        $jrs->nama_jrs=$request->get('namajrs');
-        $jrs->fakultas=$request->get('fakultas');
+        $jrs->jrs = $request->get('kdjrs');
+        $jrs->nama_jrs = $request->get('namajrs');
+        $jrs->fakultas = $request->get('fakultas');
         $jrs->save();
-        return redirect()->route( 'jurusan.index' , [$id]);
+        return redirect()->route('jurusan.index', [$id]);
     }
 
     /**
@@ -100,9 +99,9 @@ class JurusanController extends Controller
     public function destroy($id)
     {
         $jrs = \App\Models\Jurusan::findOrFail($id);
- 
+
         $jrs->delete();
 
-        return redirect()->route( 'jurusan.index');
+        return redirect()->route('jurusan.index');
     }
 }
